@@ -1,0 +1,18 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "bowtie2_params"
+description: Parameters to run bowtie2-build
+
+properties:
+  num_threads:
+    type: integer
+    minimum: 1
+    maximum: 64
+    description: The number of threads to use for bowtie2-build
+  mem: 
+    type: string
+    pattern: "^[0-9]+[GKM]$"
+    description: Memory to allocate for bowtie2
+
+required:
+  - num_threads
+  - mem

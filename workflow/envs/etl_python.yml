@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+  - r
+  - bioconda
+  - default
+dependencies:
+  - requests
+  - pandas>=1.4.2

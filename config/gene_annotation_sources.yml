@@ -1,0 +1,29 @@
+surfaceome:
+  ms_cell_surface_protein_atlas:
+    url: "https://doi.org/10.1371/journal.pone.0121314.s003"
+    filename: "pone.0121314.s003.xlsx"
+    doi: "https://doi.org/10.1371/journal.pone.0121314"
+    description: "S2 File. CSPA validated surfaceome proteins. Excel file containing all human and mouse surfaceome proteins in two tables and an additional table with all identified N-glycopeptides. A. List of 1492 human surfaceome proteins and their annotation. B. List of 1296 mouse surfaceome proteins and their annotation. C. List of 13942 mouse and human derived N-glycopeptides, including identified modified form."
+  in_silico_human_surfaceome:
+    url: "http://wlab.ethz.ch/surfaceome/table_S3_surfaceome.xlsx"
+    filename: "table_S3_surfaceome.xlsx"
+    doi: "https://doi.org/10.1073/pnas.1808790115"
+    description: "Application of a machine-learning approach utilizing domain-specific features to develop the accurate surfaceome predictor SURFY and used it to define the human in silico surfaceome of 2,886 proteins. The in silico surfaceome is a public resource which can be used to filter multiomics data to uncover cellular phenotypes and surfaceome markers."
+subcellular_location:
+  the_human_protein_atlas:
+    url: "https://www.proteinatlas.org/download/subcellular_location.tsv.zip"
+    filename: "subcellular_location.tsv.zip"
+    doi: ""
+    description: "Subcellular location of proteins based on immunofluorescently stained cells. The tab-separated file includes the following columns: Ensembl gene identifier (Gene), name of gene (Gene name), gene reliability score (Reliability), enhanced locations (Enhanced), supported locations (Supported), Approved locations (Approved), uncertain locations (Uncertain), locations with single-cell variation in intensity (Single-cell variation intensity), locations with spatial single-cell variation (Single-cell variation spatial), locations with observed cell cycle dependency (type can be one or more of biological definition, custom data or correlation) (Cell cycle dependency), Gene Ontology Cellular Component term identifier (GO id). The data is based on The Human Protein Atlas version 23.0 and Ensembl version 109."
+genes:
+  hgnc:
+    url: "https://www.genenames.org/cgi-bin/download/custom?col=gd_hgnc_id&col=gd_app_sym&col=gd_app_name&col=gd_aliases&col=gd_pub_ensembl_id&col=md_prot_id&status=Approved&hgnc_dbtag=on&order_by=gd_app_sym_sort&format=text&submit=submit"
+    filename: "hgnc.tsv"
+    doi: "https://doi.org/10.1093/nar/gkac888"
+    description: "Human gene symbols and corresponding descriptive gene names from HGNC"
+cell_markers:
+  panglaodb:
+    url: "https://panglaodb.se/markers/PanglaoDB_markers_27_Mar_2020.tsv.gz"
+    filename: "PanglaoDB_markers_27_Mar_2020.tsv.gz"
+    doi: "https://doi.org/10.1093/database/baz046"
+    description: "List of gene expression markers are used to define cell types. Summary: 8286 associations (178 cell types, 4679 gene symbols, 29 tissues); Last updated: 27/03/2020 10:44:00 CET"  

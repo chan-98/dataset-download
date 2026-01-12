@@ -1,0 +1,28 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "ensembl_params"
+description: Parameters to fill for downloading ensembl data
+
+properties:
+  species:
+    type: string
+  assembly_version:
+    type: number
+  release_version:
+    type: integer
+  filtered:
+    type: boolean
+  filters:
+    $ref: "filter.yml"
+
+required:
+  - species
+  - assembly_version
+  - release_version
+  - filtered
+
+if:
+  properties:
+    filtered:
+      const: True
+then:
+  required: [filters]

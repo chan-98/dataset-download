@@ -1,0 +1,3 @@
+__default__:
+  output: "logs/{rule}/{rule}.{wildcards}.out"
+  error: "logs/{rule}/{rule}.{wildcards}.err"

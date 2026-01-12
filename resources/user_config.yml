@@ -1,0 +1,42 @@
+# Where to download the data from
+source: "ensembl"
+source_subtype: "ensembl"
+
+# Where to store the data
+destination: "/home/chandini.v/snakemake_examples/outputs/data_download_pipeline"
+
+# ensembl parameters
+ensembl_params:
+  # The species to download the files for
+  species: "Human"
+  # The version of the assembly of interest
+  assembly_version: 38
+  # The ensembl release of interest
+  release_version: 109
+  # Should we filter the data (anly applicable if "gtf" in formats)
+  filtered: False
+# Add this to generate specific genesets
+create_gene_sets: False
+
+# SRA parameters
+#sra_params:
+#  # Data type. Can be one of "bulk" or "single-cell"
+#  data_type: "bulk"
+#  # Can be one of "file", containing a list of accessions, or "accession list"
+#  source_type: "accession list"
+#  # If the source_type is "file" write the path to said file ("/data/path/to/file")
+#  # If it's "accession list" write the accessions to download (["SRRXX1", "SRRXX2"])
+#  accessions: []
+#  # If you decide to download all runs from project PRJNAXXX except SRRXXX1 add SRRXXX1 here
+#  accessions_to_skip: []
+
+# This parameter is optional
+spike_in_params: 
+  kit: "TO SET"
+
+# This is optional and set to false by default
+# Use it if you want to create a bowtie index for fastq_screen
+build_fastq_screen_index: True
+bowtie2_params:
+  num_threads: 10
+  mem: "14G"

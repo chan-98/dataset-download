@@ -1,0 +1,111 @@
+Human:
+  latin: "Homo_sapiens"
+  latin_prefix: "hsapiens"
+  assembly_prefix: "GRCh"
+  biomart_gene_dataset: "hsapiens_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Mouse:
+  latin: "Mus_musculus"
+  latin_prefix: "mmusculus"
+  assembly_prefix: "GRCm"
+  biomart_gene_dataset: "mmusculus_gene_ensembl"
+  biomart_external_symbol: "mgi_symbol"
+  biomart_external_id: "mgi_id"
+
+Crab-eating macaque:
+  latin: "Macaca_fascicularis"
+  latin_prefix: "mfascicularis"
+  assembly_prefix: "Macaca_fascicularis_"
+  biomart_gene_dataset: "mfascicularis_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Macaque:
+  latin: "Macaca_mulatta"
+  latin_prefix: "mmulatta"
+  assembly_prefix: "Mmul_"
+  biomart_gene_dataset: "mmulatta_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Rat:
+  latin: "Rattus_norvegicus"
+  latin_prefix: "rnorvegicus"
+  assembly_prefix: "mRatBN"
+  biomart_gene_dataset: "rnorvegicus_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Drosophila:
+  latin: "Drosophila_melanogaster"
+  latin_prefix: "dmelanogaster"
+  assembly_prefix: "BDGP"
+  biomart_gene_dataset: "dmelanogaster_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Worm:
+  latin: "Caenorhabditis_elegans"
+  latin_prefix: "celegans"
+  assembly_prefix: "WBcel"
+  biomart_gene_dataset: "celegans_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Yeast:
+  latin: "Saccharomyces_cerevisiae"
+  latin_prefix: "scerevisiae"
+  assembly_prefix: "R64-1-"
+  biomart_gene_dataset: "scerevisiae_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Arabidopsis:
+  latin: "Arabidopsis_thaliana"
+  latin_prefix: "athaliana"
+  assembly_prefix: "TAIR"
+  biomart_gene_dataset: "athaliana_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Ecoli:
+  latin: "Escherichia_coli_str_k_12_substr_mg1655_gca_000005845"
+  latin_prefix: "ecoli"
+  assembly_prefix: "ASM584v"
+  biomart_gene_dataset: "ecoli_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Mycoplasma:
+  latin: "Mycoplasma_pneumoniae_m129_gca_000027345"
+  latin_prefix: "mpneumoniae"
+  assembly_prefix: "ASM2734v"
+  biomart_gene_dataset: "mpneumoniae_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Dog:
+  latin: "Canis_lupus_familiaris"
+  latin_prefix: "cfamiliaris"
+  assembly_prefix: "ROS_Cfam_"
+  biomart_gene_dataset: "cfamiliaris_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Cat:
+  latin: "Felis_catus"
+  latin_prefix: "fcatus"
+  assembly_prefix: "Felis_catus_"
+  biomart_gene_dataset: "fcatus_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"
+
+Horse:
+  latin: "Equus_caballus"
+  latin_prefix: "ecaballus"
+  assembly_prefix: "EquCab"
+  biomart_gene_dataset: "ecaballus_gene_ensembl"
+  biomart_external_symbol: "hgnc_symbol"
+  biomart_external_id: "hgnc_id"

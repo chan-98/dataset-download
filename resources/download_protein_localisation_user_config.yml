@@ -1,0 +1,8 @@
+# Where to download the data from
+source: "other"
+
+# Where to store the data
+destination: "/data/public"
+
+# Add this to generate specific genesets
+create_gene_sets: True

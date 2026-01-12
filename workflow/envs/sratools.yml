@@ -1,0 +1,10 @@
+channels:
+  - conda-forge
+  - bioconda
+  - default
+dependencies:
+  - sra-tools=3.0.3
+  - entrez-direct=16.2
+  - samtools=1.16.1
+  - pysradb=2.1.0
+  - pigz=2.6

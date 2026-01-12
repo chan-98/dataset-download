@@ -1,0 +1,59 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "general"
+description: Parameters to fill for downloading data
+
+properties:
+  destination:
+    type: string
+  source:
+    enum: ["ensembl", "sra", "spike-ins", "other"]
+  ensembl_params:
+    $ref: "ensembl.yml"
+  create_gene_sets:
+    type: boolean
+    default: false
+  orthologs:
+    $ref: "orthologs.yml"
+  sra_params:
+    $ref: "sra.yml"
+  spike_in_params:
+    $ref: "spike-ins.yml"
+  build_fastq_screen_index: 
+    type: boolean
+    default: false
+  bowtie2_params:
+    $ref: "bowtie2.yml"
+
+required:
+  - destination
+  - source
+  - build_fastq_screen_index
+
+
+if:
+  properties:
+    source:
+      const: "ensembl"
+then:
+  required: [ensembl_params]
+
+if:
+  properties:
+    source:
+      const: "sra"
+then:
+  required: [sra_params]
+
+if:
+  properties:
+    source:
+      const: "spike-ins"
+then:
+  required: [spike_ins_params]
+
+if:
+  properties:
+    build_fastq_screen_index:
+      const: true
+then:
+  required: [bowtie2_params]

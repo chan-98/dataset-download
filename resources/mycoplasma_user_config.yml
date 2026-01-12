@@ -1,0 +1,26 @@
+# Where to download the data from
+source: "ensembl"
+source_subtype: "ensembl_bacteria"
+
+# Where to store the data
+destination: "/data/public/references"
+
+# ensembl parameters
+ensembl_params:
+  # The species to download the files for
+  species: "Mycoplasma"
+  # The version of the assembly of interest
+  assembly_version: 1
+  # The ensembl release of interest
+  release_version: 56
+  # Should we filter the data (anly applicable if "gtf" in formats)
+  filtered: False
+# Add this to generate specific genesets
+create_gene_sets: False
+
+# This is optional and set to false by default
+# Use it if you want to create a bowtie index for fastq_screen
+build_fastq_screen_index: True
+bowtie2_params:
+  num_threads: 10
+  mem: "14G"

@@ -1,0 +1,16 @@
+channels:
+  - conda-forge
+  - r
+  - bioconda
+  - default
+dependencies:
+  - wget
+  - libcurl
+  - curl
+  - r-base
+  - r-tidyverse
+  - r-readxl
+  - r-optparse
+  - r-argparse
+  - r-biomartr
+  - bioconductor-genomicfeatures

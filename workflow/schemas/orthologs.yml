@@ -1,0 +1,22 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "orthologs"
+description: Parameters to fill to get the ortholog genes
+
+properties:
+  source_species:
+    type: string
+  source_assembly_version:
+    type: integer
+  target_species:
+    type: string
+  target_assembly_version:
+    type: integer
+  release_version:
+    type: integer
+
+required:
+  - source_species
+  - source_assembly_version
+  - target_species
+  - target_assembly_version
+  - release_version

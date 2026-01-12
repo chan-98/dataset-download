@@ -1,0 +1,68 @@
+# Where to download the data from
+source: "ensembl"
+
+# Where to store the data
+destination: "/data/public/1.Reference_genomes/references"
+
+# ensembl parameters
+ensembl_params:
+  # The species to download the files for
+  species: Human
+  # The version of the assembly of interest
+  assembly_version: 38
+  # The ensembl release of interest
+  release_version: 110
+  # Should we filter the data (anly applicable if "gtf" in formats)
+  filtered: False
+  # Filters to apply to the GTF file (lines matching these will be kept)
+  filters:
+    - gene_biotype:
+      - "+protein_coding"
+    - transcript_biotype:
+      - "+protein_coding"
+
+# Add this to generate specific genesets
+create_gene_sets: False
+# SRA parameters
+sra_params:
+  # Data type. Can be one of "bulk" or "single-cell"
+  data_type: "bulk"
+  # Can be one of "file", containing a list of accessions, or "accession list"
+  source_type: "accession list"
+  # If the source_type is "file" write the path to said file ("/data/path/to/file")
+  # If it's "accession list" write the accessions to download (["SRRXX1", "SRRXX2"])
+  accessions: ['an_accession_number']
+  # If you decide to download all runs from project PRJNAXXX except SRRXXX1, add SRRXXX1 here
+  accessions_to_skip: []
+  # Which database to get the runinfo from (its here if we decide to expand the use of esearch|efetch)
+  database: "sra"
+  # prefetch parameters
+  prefetch:
+    # Maximum file size to download (default 60G)
+    max_size: "60G"
+  # fasterq-dump parameters
+  fasterq_dump:
+    # Number of threads to allocate to fasterq-dump
+    threads: 6
+    # Scratch directory to use for temorary data
+    temp: "/data2/scratch"
+  # bam2fq parameters
+  bam2fq:
+    # Number of additional threads to allocate to bam2fq
+    threads: 7
+  # pigz parameters
+  pigz:
+    # Number of threads to use for compression
+    threads: 8
+
+# This parameter is optional
+spike_in_params:
+  kit: "TO SET"
+
+# This is optional and set to false by default
+# Use it if you want to create a bowtie index for fastq_screen
+build_fastq_screen_index: False
+bowtie2_params:
+  num_threads: 10
+  mem: "14G"
+

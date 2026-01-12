@@ -1,0 +1,77 @@
+from os.path import join, dirname
+
+envs_path = join(workflow.basedir, "envs")
+rules_path = join(workflow.basedir, "rules")
+schemas_path = join(workflow.basedir, "schemas")
+scripts_path = join(workflow.basedir, "scripts")
+config_path = join(dirname(workflow.basedir), "config")
+
+if config:
+    # Include common functions
+    include: join(rules_path, "common.smk")
+    # Update default config with user_config values
+    default_config = get_default_config(config_path)
+    snakemake.utils.update_config(default_config, config)
+    config = default_config
+    # Validate config against the schema
+    validate_config(config, schemas_path)
+    # Set output directory as the working directory
+    outdir = config["destination"]
+    workdir: outdir
+
+    if config["source"] == "sra":
+        sra_conf = config["sra_params"]
+        if sra_conf["source_type"] == "file":
+            accession_list = read_sra_source_file(sra_conf["accessions"])
+        else:
+            accession_list = sra_conf["accessions"]
+        include: join(rules_path, "sratools.smk")
+    elif config["source"] == "spike-ins":
+        source_conf = config["spike_ins_params"]
+        kit = config["spike_ins_params"]["kit"]
+        spike_ins_url = get_spike_ins_url(kit, allowed_references)
+        include: join(rules_path, "spike-ins.smk")
+    elif config["source"] == "other":
+        if config["build_fastq_screen_index"]:
+            include: join(rules_path, "fastq_screen_build.smk")
+        else:
+            if 'create_gene_sets' in config.keys() and config['create_gene_sets']:
+                gene_annotation_sources = get_gene_annotation_sources(config_path)
+                SURFACEOME_SOURCES = gene_annotation_sources['surfaceome'].keys()
+                SUBCELLULAR_SOURCES = gene_annotation_sources['subcellular_location'].keys()
+                GENE_SOURCES = gene_annotation_sources['genes'].keys()
+                include: join(rules_path, "gene_annotations.smk")
+            if 'orthologs' in config.keys():
+                ensembl_releases = get_ensembl_releases(config["source_subtype"],config_path)
+                allowed_references = get_allowed_references("ensembl", config_path)
+                source = 'ensembl'
+                orthologs_conf = config['orthologs']
+                source_species = orthologs_conf['source_species']
+                target_species = orthologs_conf['target_species']
+                source_assembly = f"{allowed_references[source_species]['assembly_prefix']}{orthologs_conf['source_assembly_version']}"
+                target_assembly = f"{allowed_references[target_species]['assembly_prefix']}{orthologs_conf['target_assembly_version']}"
+                source_latin = allowed_references[source_species]['latin']
+                target_latin = allowed_references[target_species]['latin']
+                source_latin_prefix = allowed_references[source_species]['latin_prefix']
+                target_latin_prefix = allowed_references[target_species]['latin_prefix']
+                release = f"{orthologs_conf['release_version']}"
+                biomart_url = ensembl_releases[release]
+                include: join(rules_path, "orthologs.smk")
+    else:
+        allowed_references = get_allowed_references(config["source"], config_path)
+        sp_to_update = {}
+        for sp in allowed_references:
+            if " " in sp:
+                sp_to_update[sp.replace(" ", "_")] = allowed_references[sp]
+        snakemake.utils.update_config(allowed_references, sp_to_update)
+
+        if config["source"] == "ensembl":
+            source_conf = config["ensembl_params"]
+            ensembl_releases = get_ensembl_releases(config["source_subtype"],config_path)
+            source_conf["species"] = source_conf["species"].replace(" ", "_")
+            selected = get_selected_species(source_conf["species"], allowed_references)
+            include: join(rules_path, "ensembl.smk")
+            if source_conf["filtered"]:
+                include: join(rules_path, "filter.smk")
+            if config["build_fastq_screen_index"]:
+                include: join(rules_path, "fastq_screen_build.smk")
